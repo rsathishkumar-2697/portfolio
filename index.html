@@ -499,7 +499,7 @@ footer span{color:var(--gold)}
         <span class="exp-badge">Current Role</span>
       </div>
       <div class="exp-role">Full Stack Developer</div>
-      <div class="exp-period">Apr 2024 — Present · 2.3+ Years</div>
+      <div class="exp-period">Apr 2023 — Present · 2.3+ Years</div>
       <ul class="exp-ul">
         <li>Built full-stack web applications using Next.js, React, and Tailwind CSS from scratch</li>
         <li>Developed REST APIs with Node.js and Express.js; integrated with MongoDB databases</li>
@@ -706,20 +706,34 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 // Contact form
 function sendMessage() {
-  const name = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  const subject = document.getElementById('fsubject').value.trim();
-  const message = document.getElementById('fmessage').value.trim();
+  const nameEl = document.getElementById('fname');
+  const emailEl = document.getElementById('femail');
+  const subjectEl = document.getElementById('fsubject');
+  const messageEl = document.getElementById('fmessage');
+  const name = nameEl.value.trim();
+  const email = emailEl.value.trim();
+  const subject = subjectEl.value.trim();
+  const message = messageEl.value.trim();
   if (!name || !email || !message) { alert('Please fill in name, email, and message.'); return; }
   const btn = document.getElementById('formBtn');
-  btn.disabled = true; btn.textContent = 'Sending...';
+  btn.disabled = true; btn.textContent = 'Opening Mail...';
   const mailto = `mailto:rsathishkumar2697esm@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact: ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
-  window.location.href = mailto;
+  // Use anchor click — does NOT navigate away, keeps page state intact
+  const a = document.createElement('a');
+  a.href = mailto;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  // Clear form and show success
   setTimeout(() => {
+    nameEl.value = '';
+    emailEl.value = '';
+    subjectEl.value = '';
+    messageEl.value = '';
     btn.style.display = 'none';
     const s = document.getElementById('formSuccess');
     s.style.display = 'flex';
-  }, 1000);
+  }, 800);
 }
 </script>
 </body>
