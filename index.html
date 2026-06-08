@@ -316,57 +316,25 @@ nav{
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 .avail-pill span{font-size:11px;color:var(--gold);font-family:'Fira Code',monospace;letter-spacing:0.1em}
 .contact-links{display:flex;flex-direction:column;gap:10px;margin-top:32px}
-.c-link{
-  display:flex;align-items:center;gap:16px;
-  padding:16px 20px;
+.c-card{
+  display:flex;flex-direction:column;gap:6px;
+  padding:28px 24px;
   background:var(--card);border:1px solid var(--border);
-  border-radius:6px;text-decoration:none;color:var(--text);
+  border-radius:8px;text-decoration:none;color:var(--text);
   transition:all 0.25s;
 }
-.c-link:hover{border-color:var(--gold-border);transform:translateX(6px)}
-.c-icon{
-  width:40px;height:40px;border-radius:4px;
+.c-card:hover{border-color:var(--gold-border);transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.4)}
+.c-card-icon{
+  width:44px;height:44px;border-radius:6px;
   background:var(--gold-dim);border:1px solid var(--gold-border);
   display:flex;align-items:center;justify-content:center;
-  font-size:14px;flex-shrink:0;color:var(--gold);
+  font-size:16px;color:var(--gold);
   font-family:'Fira Code',monospace;font-weight:700;
+  margin-bottom:8px;
 }
-.c-label{font-size:14px;font-weight:700}
-.c-val{font-size:11px;color:var(--text2);font-family:'Fira Code',monospace;margin-top:2px}
-.form-wrap{display:flex;flex-direction:column;gap:14px}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.f-group{display:flex;flex-direction:column;gap:5px}
-.f-label{
-  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--text3);font-family:'Fira Code',monospace;
-}
-.f-input{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:4px;padding:12px 14px;
-  color:var(--text);font-size:14px;
-  font-family:'Cabinet Grotesk',sans-serif;
-  outline:none;transition:border 0.2s;
-}
-.f-input:focus{border-color:var(--gold-border)}
-.f-input::placeholder{color:var(--text3)}
-textarea.f-input{resize:vertical;min-height:120px}
-.f-btn{
-  background:var(--gold);color:#000;
-  padding:14px 30px;border-radius:3px;
-  font-weight:800;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
-  border:none;cursor:pointer;
-  font-family:'Cabinet Grotesk',sans-serif;
-  align-self:flex-start;transition:all 0.25s;
-}
-.f-btn:hover{background:var(--gold2);box-shadow:0 8px 24px rgba(201,168,76,0.3);transform:translateY(-2px)}
-.f-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
-.f-success{
-  display:none;align-items:center;gap:10px;
-  padding:14px 18px;border-radius:4px;font-size:14px;
-  background:var(--gold-dim);border:1px solid var(--gold-border);
-  color:var(--gold);
-}
+.c-card-label{font-size:13px;font-weight:800;letter-spacing:0.04em}
+.c-card-val{font-size:11px;color:var(--text2);font-family:'Fira Code',monospace;line-height:1.5}
+.c-card-cta{font-size:11px;color:var(--gold);margin-top:8px;font-weight:700;letter-spacing:0.06em}
 
 /* ── FOOTER ── */
 footer{
@@ -499,7 +467,7 @@ footer span{color:var(--gold)}
         <span class="exp-badge">Current Role</span>
       </div>
       <div class="exp-role">Full Stack Developer</div>
-      <div class="exp-period">Apr 2023 — Present · 2.3+ Years</div>
+      <div class="exp-period">Apr 2024 — Present · 2.3+ Years</div>
       <ul class="exp-ul">
         <li>Built full-stack web applications using Next.js, React, and Tailwind CSS from scratch</li>
         <li>Developed REST APIs with Node.js and Express.js; integrated with MongoDB databases</li>
@@ -628,68 +596,74 @@ footer span{color:var(--gold)}
 <!-- CONTACT -->
 <div class="contact-wrap" id="contact">
   <div class="section">
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="sec-tag">Let's Work Together</div>
-        <div class="sec-title">Contact</div>
-        <p style="font-size:15px;color:var(--text2);line-height:1.8;margin-top:14px;margin-bottom:24px">
-          Open to remote full-stack developer roles and freelance projects. I typically reply within 24 hours.
-        </p>
-        <div class="avail-pill">
-          <span class="avail-dot"></span>
-          <span>Available for Remote Work</span>
-        </div>
-        <div style="padding:20px 24px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:4px;margin-bottom:28px">
-          <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-family:'Fira Code',monospace;margin-bottom:6px">Availability</div>
-          <div style="font-size:15px;font-weight:700">Open to Opportunities</div>
-          <div style="font-size:12px;color:var(--text2);margin-top:3px">Full-time · Freelance · Contract</div>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:rsathishkumar2697esm@gmail.com" class="c-link">
-            <div class="c-icon">✉</div>
-            <div><div class="c-label">Email</div><div class="c-val">rsathishkumar2697esm@gmail.com</div></div>
-          </a>
-          <a href="https://linkedin.com/in/sathishkumar-" target="_blank" class="c-link">
-            <div class="c-icon">in</div>
-            <div><div class="c-label">LinkedIn</div><div class="c-val">linkedin.com/in/sathishkumar-</div></div>
-          </a>
-          <a href="https://github.com/rsathishkumar-2697" target="_blank" class="c-link">
-            <div class="c-icon">gh</div>
-            <div><div class="c-label">GitHub</div><div class="c-val">github.com/rsathishkumar-2697</div></div>
-          </a>
-          <a href="https://www.fiverr.com/r_sathishkumar" target="_blank" class="c-link">
-            <div class="c-icon">fvr</div>
-            <div><div class="c-label">Fiverr</div><div class="c-val">fiverr.com/r_sathishkumar</div></div>
-          </a>
-        </div>
+
+    <!-- Top CTA banner -->
+    <div class="reveal" style="text-align:center;padding:64px 20px 56px">
+      <div class="avail-pill" style="justify-content:center;margin-bottom:28px">
+        <span class="avail-dot"></span>
+        <span>Open to Remote Opportunities · Immediate Joiner</span>
       </div>
-      <div class="reveal reveal-delay-1">
-        <div class="form-wrap" id="contactForm">
-          <div class="f-row">
-            <div class="f-group">
-              <label class="f-label">Your Name</label>
-              <input type="text" class="f-input" id="fname" placeholder="John Doe">
-            </div>
-            <div class="f-group">
-              <label class="f-label">Email Address</label>
-              <input type="email" class="f-input" id="femail" placeholder="john@example.com">
-            </div>
-          </div>
-          <div class="f-group">
-            <label class="f-label">Subject</label>
-            <input type="text" class="f-input" id="fsubject" placeholder="Project inquiry / Job opportunity">
-          </div>
-          <div class="f-group">
-            <label class="f-label">Message</label>
-            <textarea class="f-input" id="fmessage" placeholder="Tell me about your project or opportunity..."></textarea>
-          </div>
-          <button class="f-btn" id="formBtn" onclick="sendMessage()">Send Message →</button>
-          <div class="f-success" id="formSuccess">
-            ✓ Message sent! I'll reply within 24 hours.
-          </div>
-        </div>
+      <div class="sec-title" style="font-size:clamp(32px,5vw,60px);margin-bottom:16px;letter-spacing:-2px">
+        Let's Build Something<br>
+        <span style="background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Together.</span>
+      </div>
+      <p style="font-size:16px;color:var(--text2);line-height:1.8;max-width:480px;margin:0 auto 40px">
+        Full Stack Developer available for <strong style="color:var(--text)">full-time remote roles</strong>, freelance projects, and contract work. I reply within 24 hours.
+      </p>
+      <a href="mailto:rsathishkumar2697esm@gmail.com" class="btn-gold" style="font-size:14px;padding:16px 36px">
+        ✉ Hire Me — rsathishkumar2697esm@gmail.com
+      </a>
+    </div>
+
+    <!-- 4 contact cards -->
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:60px">
+
+      <a href="mailto:rsathishkumar2697esm@gmail.com" class="c-card">
+        <div class="c-card-icon">✉</div>
+        <div class="c-card-label">Email</div>
+        <div class="c-card-val">rsathishkumar2697esm@gmail.com</div>
+        <div class="c-card-cta">Send Email →</div>
+      </a>
+
+      <a href="https://linkedin.com/in/sathishkumar-" target="_blank" class="c-card">
+        <div class="c-card-icon" style="font-family:'Fira Code',monospace;font-size:18px">in</div>
+        <div class="c-card-label">LinkedIn</div>
+        <div class="c-card-val">linkedin.com/in/sathishkumar-</div>
+        <div class="c-card-cta">View Profile →</div>
+      </a>
+
+      <a href="https://github.com/rsathishkumar-2697" target="_blank" class="c-card">
+        <div class="c-card-icon" style="font-family:'Fira Code',monospace;font-size:14px">gh</div>
+        <div class="c-card-label">GitHub</div>
+        <div class="c-card-val">114+ Public Repositories</div>
+        <div class="c-card-cta">View Code →</div>
+      </a>
+
+      <a href="https://www.fiverr.com/r_sathishkumar" target="_blank" class="c-card">
+        <div class="c-card-icon" style="font-family:'Fira Code',monospace;font-size:18px;color:#1dbf73">fvr</div>
+        <div class="c-card-label">Fiverr</div>
+        <div class="c-card-val">Available for Freelance Work</div>
+        <div class="c-card-cta">Hire on Fiverr →</div>
+      </a>
+
+    </div>
+
+    <!-- Bottom availability strip -->
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:8px;overflow:hidden">
+      <div style="padding:24px;text-align:center;border-right:1px solid var(--border)">
+        <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-family:'Fira Code',monospace;margin-bottom:6px">Role Type</div>
+        <div style="font-size:15px;font-weight:700">Full-time</div>
+      </div>
+      <div style="padding:24px;text-align:center;border-right:1px solid var(--border)">
+        <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-family:'Fira Code',monospace;margin-bottom:6px">Work Mode</div>
+        <div style="font-size:15px;font-weight:700">Remote / Hybrid</div>
+      </div>
+      <div style="padding:24px;text-align:center">
+        <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-family:'Fira Code',monospace;margin-bottom:6px">Notice Period</div>
+        <div style="font-size:15px;font-weight:700">Immediate</div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -704,37 +678,7 @@ const obs = new IntersectionObserver(entries => {
 }, {threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Contact form
-function sendMessage() {
-  const nameEl = document.getElementById('fname');
-  const emailEl = document.getElementById('femail');
-  const subjectEl = document.getElementById('fsubject');
-  const messageEl = document.getElementById('fmessage');
-  const name = nameEl.value.trim();
-  const email = emailEl.value.trim();
-  const subject = subjectEl.value.trim();
-  const message = messageEl.value.trim();
-  if (!name || !email || !message) { alert('Please fill in name, email, and message.'); return; }
-  const btn = document.getElementById('formBtn');
-  btn.disabled = true; btn.textContent = 'Opening Mail...';
-  const mailto = `mailto:rsathishkumar2697esm@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact: ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
-  // Use anchor click — does NOT navigate away, keeps page state intact
-  const a = document.createElement('a');
-  a.href = mailto;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  // Clear form and show success
-  setTimeout(() => {
-    nameEl.value = '';
-    emailEl.value = '';
-    subjectEl.value = '';
-    messageEl.value = '';
-    btn.style.display = 'none';
-    const s = document.getElementById('formSuccess');
-    s.style.display = 'flex';
-  }, 800);
-}
+
 </script>
 </body>
 </html>
