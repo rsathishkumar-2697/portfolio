@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sathishkumar Rajendran — Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080c10;
+  --bg2:#0d1117;
+  --bg3:#111820;
+  --accent:#00e5a0;
+  --accent2:#0066ff;
+  --text:#e8edf2;
+  --muted:#5a6a7a;
+  --border:#1a2332;
+  --card:#0d1520;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);background:rgba(8,12,16,0.85)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--accent);letter-spacing:-0.5px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s;letter-spacing:0.02em}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#000;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;font-family:'Syne',sans-serif;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.85}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 40px 80px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.4}
+.hero-glow{position:absolute;top:20%;left:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,229,160,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:10%;right:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(0,102,255,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);padding:6px 14px;border-radius:100px;margin-bottom:28px}
+.hero-badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.hero-badge span{font-size:12px;color:var(--accent);font-weight:500;letter-spacing:0.05em;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(48px,7vw,88px);font-weight:800;line-height:0.95;letter-spacing:-3px;margin-bottom:24px}
+.hero h1 .name-line{display:block;color:var(--text)}
+.hero h1 .role-line{display:block;color:var(--accent)}
+.hero-desc{font-size:18px;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:40px;font-weight:300}
+.hero-desc strong{color:var(--text);font-weight:500}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-family:'Syne',sans-serif;font-size:15px;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,229,160,0.3)}
+.btn-secondary{border:1px solid var(--border);color:var(--text);padding:14px 28px;border-radius:8px;font-weight:500;text-decoration:none;font-size:15px;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--muted);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border)}
+.stat-num{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--accent)}
+.stat-label{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* SECTIONS */
+section{padding:100px 40px;max-width:1100px;margin:0 auto}
+.section-tag{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-2px;margin-bottom:16px;line-height:1}
+.section-sub{color:var(--muted);font-size:16px;max-width:480px;line-height:1.7;margin-bottom:60px}
+
+/* SKILLS */
+.skills-section{background:var(--bg2);padding:100px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.skills-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:48px}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 16px;text-align:center;transition:all 0.2s;cursor:default}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-4px);background:rgba(0,229,160,0.04)}
+.skill-icon{font-size:24px;margin-bottom:10px}
+.skill-name{font-size:13px;font-weight:500;color:var(--text)}
+.skill-level{font-size:11px;color:var(--accent);font-family:'DM Mono',monospace;margin-top:4px}
+
+/* EXPERIENCE */
+.exp-timeline{position:relative;padding-left:32px}
+.exp-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:var(--border)}
+.exp-item{position:relative;margin-bottom:48px}
+.exp-dot{position:absolute;left:-39px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.exp-period{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);margin-bottom:8px}
+.exp-company{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.exp-role{font-size:14px;color:var(--muted);margin-bottom:16px}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-list li{font-size:14px;color:var(--muted);padding-left:16px;position:relative;line-height:1.6}
+.exp-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:24px}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.3s}
+.project-card:hover{border-color:rgba(0,229,160,0.3);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.project-card:hover::before{opacity:1}
+.project-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:16px}
+.project-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:12px}
+.project-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tag{font-size:11px;padding:4px 10px;border-radius:4px;background:rgba(0,229,160,0.08);color:var(--accent);border:1px solid rgba(0,229,160,0.15);font-family:'DM Mono',monospace}
+.project-features{list-style:none;display:flex;flex-direction:column;gap:6px}
+.project-features li{font-size:13px;color:var(--muted);padding-left:16px;position:relative}
+.project-features li::before{content:'✦';position:absolute;left:0;color:var(--accent);font-size:9px;top:3px}
+
+/* CONTACT */
+.contact-section{background:var(--bg2);border-top:1px solid var(--border)}
+.contact-inner{max-width:1100px;margin:0 auto;padding:100px 40px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-links{display:flex;flex-direction:column;gap:16px;margin-top:40px}
+.contact-link{display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);transition:all 0.2s}
+.contact-link:hover{border-color:var(--accent);transform:translateX(6px)}
+.contact-link-icon{width:40px;height:40px;background:rgba(0,229,160,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.contact-link-text{font-size:14px;font-weight:500}
+.contact-link-sub{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace}
+
+/* FOOTER */
+footer{text-align:center;padding:32px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+footer span{color:var(--accent)}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all 0.7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px 60px}
+  .hero-stats{gap:24px}
+  section{padding:60px 20px}
+  .projects-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .skills-inner{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">SR.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:rsathishkumar2697esm@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="about">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span>Available for Remote Work</span>
+    </div>
+    <h1>
+      <span class="name-line">Sathishkumar</span>
+      <span class="role-line">Full Stack Dev.</span>
+    </h1>
+    <p class="hero-desc">
+      Building <strong>fast, scalable web applications</strong> with Next.js, React, and Node.js.
+      2.3+ years turning ideas into production-ready products.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects ↓</a>
+      <a href="#contact" class="btn-secondary">Get In Touch →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">2.3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Technologies</div>
+      </div>
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Projects Shipped</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section" id="skills">
+  <div class="skills-inner">
+    <div class="section-tag">Skills</div>
+    <div class="section-title">Tech Stack</div>
+    <p class="section-sub">Technologies I use to build end-to-end web applications.</p>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">Next.js</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">⚛</div><div class="skill-name">React.js</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🟨</div><div class="skill-name">JavaScript</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🔷</div><div class="skill-name">TypeScript</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-card"><div class="skill-icon">🟢</div><div class="skill-name">Node.js</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🚂</div><div class="skill-name">Express.js</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🍃</div><div class="skill-name">MongoDB</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">Tailwind CSS</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🔗</div><div class="skill-name">REST APIs</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">▲</div><div class="skill-name">Vercel</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">Netlify</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🚀</div><div class="skill-name">Render</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🚂</div><div class="skill-name">Railway</div><div class="skill-level">Pro</div></div>
+      <div class="skill-card"><div class="skill-icon">🐙</div><div class="skill-name">Git</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-card"><div class="skill-icon">🎭</div><div class="skill-name">Figma</div><div class="skill-level">Intermediate</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-in">
+  <div class="section-tag">Experience</div>
+  <div class="section-title">Work History</div>
+  <p class="section-sub">Professional experience building real-world applications.</p>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Apr 2023 — Present</div>
+      <div class="exp-company">Honeycomb Technologies Ltd</div>
+      <div class="exp-role">Full Stack Developer · 2.3+ Years</div>
+      <ul class="exp-list">
+        <li>Built and maintained full-stack web applications using Next.js, React, and Tailwind CSS</li>
+        <li>Developed REST APIs using Node.js and Express.js; integrated with MongoDB</li>
+        <li>Improved page performance using SSR and SSG; optimized reusable component architecture</li>
+        <li>Built admin dashboards for real-time data management with role-based access control</li>
+        <li>Deployed production apps on Vercel, Netlify, Render, and Railway</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot" style="background:var(--accent2)"></div>
+      <div class="exp-period">Mar 2022 — Jun 2024</div>
+      <div class="exp-company">NxtWave Technologies</div>
+      <div class="exp-role">SDE Trainee</div>
+      <ul class="exp-list">
+        <li>Built responsive web apps using React.js, HTML5, CSS3, and Bootstrap</li>
+        <li>Completed Industry Ready Certification in Full Stack Development</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--bg2);max-width:100%;padding:100px 40px;border-top:1px solid var(--border)">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-tag">Projects</div>
+    <div class="section-title">Featured Work</div>
+    <p class="section-sub">Production applications built from scratch.</p>
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-num">01 / Project</div>
+        <div class="project-title">E-Commerce Platform</div>
+        <p class="project-desc">A fully functional e-commerce web application with product management, cart system, checkout flow, and SEO optimization using Next.js SSR.</p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">REST API</span>
+        </div>
+        <ul class="project-features">
+          <li>Product listing with dynamic routing and state management</li>
+          <li>Cart and checkout flow with REST API integration</li>
+          <li>SEO optimized with SSR and image optimization</li>
+          <li>Reusable component architecture</li>
+        </ul>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">02 / Project</div>
+        <div class="project-title">Fitness Platform + Admin Panel</div>
+        <p class="project-desc">Full-stack fitness application with complete admin dashboard for managing users, content, workouts, and nutrition data with secure authentication.</p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">NextAuth</span>
+          <span class="tag">Tailwind CSS</span>
+        </div>
+        <ul class="project-features">
+          <li>Admin dashboard with role-based access control</li>
+          <li>Secure authentication using NextAuth</li>
+          <li>Dynamic workout and nutrition tracking pages</li>
+          <li>End-to-end deployment and production setup</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-tag">Contact</div>
+        <div class="section-title">Let's Work Together</div>
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-top:16px">
+          I am open to remote full-stack developer roles and freelance projects.
+          Let's build something great together!
+        </p>
+        <div style="margin-top:32px;padding:24px;background:rgba(0,229,160,0.04);border:1px solid rgba(0,229,160,0.15);border-radius:12px">
+          <div style="font-size:12px;color:var(--accent);font-family:'DM Mono',monospace;margin-bottom:8px">AVAILABILITY</div>
+          <div style="font-size:15px;font-weight:500">Open to Remote Opportunities</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:4px">Full-time · Freelance · Contract</div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-links">
+          <a href="mailto:rsathishkumar2697esm@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉</div>
+            <div>
+              <div class="contact-link-text">Email Me</div>
+              <div class="contact-link-sub">rsathishkumar2697esm@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/sathishkumar-" target="_blank" class="contact-link">
+            <div class="contact-link-icon">in</div>
+            <div>
+              <div class="contact-link-text">LinkedIn</div>
+              <div class="contact-link-sub">linkedin.com/in/sathishkumar-</div>
+            </div>
+          </a>
+          <a href="https://github.com/rsathishkumar-2697" target="_blank" class="contact-link">
+            <div class="contact-link-icon">⌥</div>
+            <div>
+              <div class="contact-link-text">GitHub</div>
+              <div class="contact-link-sub">github.com/rsathishkumar-2697</div>
+            </div>
+          </a>
+          <a href="https://www.fiverr.com/r_sathishkumar" target="_blank" class="contact-link">
+            <div class="contact-link-icon">F</div>
+            <div>
+              <div class="contact-link-text">Fiverr</div>
+              <div class="contact-link-sub">fiverr.com/r_sathishkumar</div>
+            </div>
+          </a>
+          <a href="tel:+919994065301" class="contact-link">
+            <div class="contact-link-icon">☎</div>
+            <div>
+              <div class="contact-link-text">Call Me</div>
+              <div class="contact-link-sub">+91 9994065301</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Designed & Built by <span>Sathishkumar Rajendran</span> · 2025</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, {threshold:0.1})
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el))
+</script>
+</body>
+</html>
